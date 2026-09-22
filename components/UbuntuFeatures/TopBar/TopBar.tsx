@@ -1,6 +1,5 @@
 import { todayDate } from "@/utils/constrains";
 import { Power, Volume2, Wifi } from "lucide-react";
-import React from "react";
 
 const TopBar = () => {
   return (

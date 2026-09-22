@@ -2,24 +2,18 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
   Sidebar,
-  SidebarContent,
   SidebarFooter,
-  SidebarGroup,
-  SidebarGroupAction,
-  SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar";
-import { ChevronDown, ChevronsUpDown, Folder, Plus, User2 } from "lucide-react";
+import { ChevronsUpDown, Folder } from "lucide-react";
+import CreateFolder from "../CreateFolder/CreateFolder";
 
 const SideBar = () => {
   const user = {
@@ -27,14 +21,6 @@ const SideBar = () => {
     email: "jishan@gmail.com",
     avatar: "URL",
   };
-
-  const projects = [
-    { name: "user1", icon: User2, url: "#" },
-    { name: "user2", icon: User2, url: "#" },
-    { name: "user3", icon: User2, url: "#" },
-    { name: "user4", icon: User2, url: "#" },
-    { name: "user5", icon: User2, url: "#" },
-  ];
 
   return (
     <Sidebar
@@ -50,28 +36,7 @@ const SideBar = () => {
         </p>
       </SidebarHeader>
 
-      <SidebarContent className="scrollbar-hide">
-        <SidebarGroup>
-          <SidebarGroupLabel>Folders</SidebarGroupLabel>
-          <SidebarGroupAction>
-            <Plus /> <span className="sr-only">Add Folder</span>
-          </SidebarGroupAction>
-          <SidebarMenu>
-            {projects.map((project) => (
-              <SidebarMenuItem key={project.name}>
-                <SidebarMenuButton
-                  className="shrink-0"
-                  tooltip={project.name}
-                  render={<a href={project?.url} />}
-                >
-                  <project.icon />
-                  <span>{project.name}</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarGroup>
-      </SidebarContent>
+      <CreateFolder />
 
       <SidebarFooter>
         <SidebarMenu>
