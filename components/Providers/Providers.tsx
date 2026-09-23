@@ -11,8 +11,10 @@ const Providers = ({ children }: { children: ReactNode }) => {
         defaultOptions: {
           queries: {
             staleTime: 60 * 1000,
-            retry: 1,
-            refetchOnWindowFocus: false,
+            // retry: 1,
+            // refetchOnWindowFocus: false,
+            // 24 hours cache in db
+            gcTime: 1000 * 60 * 60 * 24,
           },
         },
       }),
