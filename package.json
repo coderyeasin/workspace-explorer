@@ -14,13 +14,12 @@
     "@tanstack/react-query-devtools": "^5.103.2",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.3.2",
+    "dexie": "^4.4.6",
     "lucide-react": "^1.47.0",
     "next": "16.3.5",
-    "next-auth": "^4.24.15",
     "postcss": "^8.5.28",
     "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "react-resizable-panels": "^4.13.2"
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",

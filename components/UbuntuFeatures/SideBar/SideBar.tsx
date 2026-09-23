@@ -1,111 +1,52 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+"use client";
+
 import {
   Sidebar,
-  SidebarContent,
   SidebarFooter,
-  SidebarGroup,
-  SidebarGroupAction,
-  SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { ChevronDown, ChevronsUpDown, Folder, Plus, User2 } from "lucide-react";
+import { Folder } from "lucide-react";
+import CreateFolder from "../CreateFolder/CreateFolder";
 
 const SideBar = () => {
-  const user = {
-    name: "Jishan",
-    email: "jishan@gmail.com",
-    avatar: "URL",
-  };
-
-  const projects = [
-    { name: "user1", icon: User2, url: "#" },
-    { name: "user2", icon: User2, url: "#" },
-    { name: "user3", icon: User2, url: "#" },
-    { name: "user4", icon: User2, url: "#" },
-    { name: "user5", icon: User2, url: "#" },
-  ];
-
   return (
     <Sidebar
       collapsible="icon"
-      className="py-10 group-data-[side=left]:border-r-0 group-data-[side=right]:border-l-0"
+      className="py-10 group-data-[side=left]:border-r-0 group-data-[side=right]:border-l-0 bg-zinc-950 text-white"
     >
-      <SidebarHeader className="flex flex-col items-center px-4 border-b border-gray-300">
-        <p className="flex items-center gap-3 shrink-0">
-          <Folder className="h-5 w-5 shrink-0" />
-          <span className="font-semibold tracking-tight group-data-[collapsible=icon]:hidden">
+      {/* Header containing title and responsive trigger */}
+      <SidebarHeader className="flex flex-row items-center justify-between px-3 pb-3 border-b border-gray-800">
+        <div className="flex items-center gap-2 overflow-hidden">
+          <Folder className="h-5 w-5 shrink-0 text-amber-500" />
+          <span className="font-semibold tracking-tight truncate group-data-[collapsible=icon]:hidden">
             Workspace Explorer
           </span>
-        </p>
+        </div>
+        <SidebarTrigger className="cursor-pointer text-zinc-400 hover:text-white" />
       </SidebarHeader>
 
-      <SidebarContent className="scrollbar-hide">
-        <SidebarGroup>
-          <SidebarGroupLabel>Folders</SidebarGroupLabel>
-          <SidebarGroupAction>
-            <Plus /> <span className="sr-only">Add Folder</span>
-          </SidebarGroupAction>
-          <SidebarMenu>
-            {projects.map((project) => (
-              <SidebarMenuItem key={project.name}>
-                <SidebarMenuButton
-                  className="shrink-0"
-                  tooltip={project.name}
-                  render={<a href={project?.url} />}
-                >
-                  <project.icon />
-                  <span>{project.name}</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarGroup>
-      </SidebarContent>
+      <CreateFolder />
 
-      <SidebarFooter>
+      <SidebarFooter className="border-t border-gray-800 px-3 py-3">
         <SidebarMenu>
           <SidebarMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                className={`border-t border-gray-300`}
-                render={
-                  <SidebarMenuButton size="lg">
-                    <Avatar className="h-8 w-8 rounded-lg">
-                      <AvatarImage alt={user.name} src={user.avatar} />
-                      <AvatarFallback className="rounded-lg">YA</AvatarFallback>
-                    </Avatar>
-                    <div className="grid flex-1 text-left text-sm leading-tight">
-                      <span className="truncate font-semibold">
-                        {user.name}
-                      </span>
-                      <span className="truncate text-xs">{user?.email}</span>
-                    </div>
-                    <ChevronsUpDown className="ml-auto size-4 text-muted-foreground" />
-                  </SidebarMenuButton>
-                }
-              />
-              <DropdownMenuContent
-                align="end"
-                side="bottom"
-                sideOffset={4}
-                className="min-w-52 rounded-lg border-0"
-              >
-                <p>{user.name}</p>
-                <p>{user.email}</p>
-                <p>Logout</p>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <SidebarMenuButton
+              size="lg"
+              className="cursor-default hover:bg-transparent"
+              title="Data is stored in this browser"
+            >
+              <Folder className="h-4 w-4 text-emerald-400" />
+              <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
+                <span className="truncate font-semibold">Local storage</span>
+                <span className="truncate text-xs text-zinc-400">
+                  Saved in this browser
+                </span>
+              </div>
+            </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
