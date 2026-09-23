@@ -120,33 +120,3 @@ export interface IModalHelper {
   itemToRename: WorkSpaceType | null;
   modalType: ContentType;
 }
-
-export interface IHandleSelectFile {
-  file: WorkSpaceType;
-  setOpenFileId: SetState<string | null>;
-  setEditorContent: SetState<string>;
-  setIsDirty: SetState<boolean>;
-}
-
-export interface IHandleOpenCreateModal {
-  type: ContentType;
-  setModalType: SetState<ContentType>;
-  setItemToRename: SetState<WorkSpaceType | null>;
-  setModalName: SetState<string>;
-  setIsModalOpen: SetState<boolean>;
-}
-
-export interface IHandleOpenRenameModal {
-  item: WorkSpaceType;
-  setItemToRename: SetState<WorkSpaceType | null>;
-  setModalType: SetState<ContentType>;
-  setModalName: SetState<string>;
-  setIsModalOpen: SetState<boolean>;
-}
-
-export interface IHandleCloseItemModal {
-  open: boolean;
-  setIsModalOpen: SetState<boolean>;
-  setItemToRename: SetState<WorkSpaceType | null>;
-  setModalName: SetState<string>;
-}

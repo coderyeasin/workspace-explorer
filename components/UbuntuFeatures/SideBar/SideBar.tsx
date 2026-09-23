@@ -1,12 +1,5 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
   Sidebar,
   SidebarFooter,
@@ -16,16 +9,10 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { ChevronsUpDown, Folder, LogOut, User } from "lucide-react";
+import { Folder } from "lucide-react";
 import CreateFolder from "../CreateFolder/CreateFolder";
 
 const SideBar = () => {
-  const user = {
-    name: "Jishan",
-    email: "jishan@gmail.com",
-    avatar: "https://github.com/shadcn.png",
-  };
-
   return (
     <Sidebar
       collapsible="icon"
@@ -44,53 +31,22 @@ const SideBar = () => {
 
       <CreateFolder />
 
-      <SidebarFooter className="border-t border-gray-800">
+      <SidebarFooter className="border-t border-gray-800 px-3 py-3">
         <SidebarMenu>
           <SidebarMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                render={
-                  <SidebarMenuButton
-                    size="lg"
-                    className="hover:bg-zinc-800 border-t border-gray-800"
-                  >
-                    <Avatar className="h-8 w-8 rounded-lg">
-                      <AvatarImage alt={user.name} src={user.avatar} />
-                      <AvatarFallback className="rounded-lg bg-zinc-800 text-white">
-                        JI
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
-                      <span className="truncate font-semibold">
-                        {user.name}
-                      </span>
-                      <span className="truncate text-xs text-zinc-400">
-                        {user?.email}
-                      </span>
-                    </div>
-                    <ChevronsUpDown className="ml-auto size-4 text-muted-foreground group-data-[collapsible=icon]:hidden" />
-                  </SidebarMenuButton>
-                }
-              ></DropdownMenuTrigger>
-
-              <DropdownMenuContent
-                align="end"
-                side="right"
-                sideOffset={8}
-                className="min-w-52 rounded-lg border border-zinc-800 bg-zinc-900 text-white"
-              >
-                <div className="p-2 border-b border-zinc-800">
-                  <p className="font-semibold text-sm">{user.name}</p>
-                  <p className="text-xs text-zinc-400">{user.email}</p>
-                </div>
-                <DropdownMenuItem className="cursor-pointer focus:bg-zinc-800">
-                  <User className="mr-2 h-4 w-4" /> Profile
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer text-red-400 focus:bg-zinc-800 focus:text-red-400">
-                  <LogOut className="mr-2 h-4 w-4" /> Logout
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <SidebarMenuButton
+              size="lg"
+              className="cursor-default hover:bg-transparent"
+              title="Data is stored in this browser"
+            >
+              <Folder className="h-4 w-4 text-emerald-400" />
+              <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
+                <span className="truncate font-semibold">Local storage</span>
+                <span className="truncate text-xs text-zinc-400">
+                  Saved in this browser
+                </span>
+              </div>
+            </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>

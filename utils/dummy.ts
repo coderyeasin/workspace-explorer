@@ -33,7 +33,7 @@ export const demoWorkSpaceData: WorkSpaceType[] = [
     type: "file",
     parentId: "webbly",
     content:
-      "Webbly Architecture:\n- Frontend: Next.js 15, Tailwind CSS v4\n- State: React Query + IndexedDB",
+      "Workspace Explorer:\n- Frontend: Next.js, React, and Tailwind CSS\n- Storage: React Query + IndexedDB",
     createdAt: now,
     updatedAt: now,
   },

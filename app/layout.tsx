@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Workspace-Explore",
-  description: "Create folder or file",
+  description: "Organize local workspaces, folders, and files.",
   icons: "/file.svg",
 };
 

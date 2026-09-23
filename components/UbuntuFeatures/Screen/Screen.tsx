@@ -161,7 +161,7 @@ const Screen = () => {
   const modalPlaceholder = getItemModalPlaceholder({ itemToRename, modalType });
 
   return (
-    <div className="h-[calc(100vh-2rem)] px-6 py-4 bg-gradient-to-br from-[#2C001E] via-[#77216F] to-[#E95420] text-white flex flex-col overflow-hidden">
+    <div className="h-[calc(100vh-2rem)] px-6 py-4 bg-linear-to-br from-[#2C001E] via-[#77216F] to-[#E95420] text-white flex flex-col overflow-hidden">
       <div className="mb-4">
         <SearchBox />
       </div>
@@ -276,7 +276,7 @@ const Screen = () => {
         title="Create New Workspace"
         inputValue={workspaceName}
         onInputChange={setWorkspaceName}
-        placeholder="e.g., Workspace / Personal"
+        placeholder="Workspace name"
         submitLabel="Create Workspace"
         onSubmit={workspaceModalSubmit}
       />

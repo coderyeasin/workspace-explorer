@@ -40,7 +40,7 @@ const SearchBox = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="max-w-xl bg-white shadow-none border-none focus-visible:right-0 focus-visible:outline-none focus-visible:border-none"
-          placeholder="Type to search..."
+          placeholder="Search files and folders"
         />
         <Button variant="outline" className="cursor-pointer bg-white">
           Search

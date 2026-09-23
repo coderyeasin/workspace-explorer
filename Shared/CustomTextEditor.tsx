@@ -67,7 +67,7 @@ const CustomTextEditor = ({
           setIsDirty(true);
         }}
         className="flex-1 p-4 font-mono text-xs bg-transparent focus:outline-none resize-none leading-relaxed text-zinc-200"
-        placeholder="Start typing file content..."
+        placeholder="Write file content"
       />
     </div>
   );

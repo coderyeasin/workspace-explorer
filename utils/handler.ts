@@ -4,10 +4,6 @@ import {
   IHandleSaveFile,
   IHandleWorkspaceModalSubmit,
   IModalHelper,
-  IHandleSelectFile,
-  IHandleOpenCreateModal,
-  IHandleOpenRenameModal,
-  IHandleCloseItemModal,
   WorkSpaceType,
   IHandleBreadcrumbs,
 } from "@/types/type";
@@ -138,55 +134,5 @@ export const getItemModalPlaceholder = ({
   modalType,
 }: IModalHelper): string => {
   if (itemToRename) return itemToRename.name;
-  return modalType === "folder" ? "e.g., Components" : "e.g., config.ts";
-};
-
-export const handleSelectFile = ({
-  file,
-  setOpenFileId,
-  setEditorContent,
-  setIsDirty,
-}: IHandleSelectFile): void => {
-  setOpenFileId(file.id);
-  setEditorContent(file.content ?? "");
-  setIsDirty(false);
-};
-
-export const handleOpenCreateModal = ({
-  type,
-  setModalType,
-  setItemToRename,
-  setModalName,
-  setIsModalOpen,
-}: IHandleOpenCreateModal): void => {
-  setItemToRename(null);
-  setModalType(type);
-  setModalName("");
-  setIsModalOpen(true);
-};
-
-export const handleOpenRenameModal = ({
-  item,
-  setItemToRename,
-  setModalType,
-  setModalName,
-  setIsModalOpen,
-}: IHandleOpenRenameModal): void => {
-  setItemToRename(item);
-  setModalType(item.type);
-  setModalName(item.name);
-  setIsModalOpen(true);
-};
-
-export const handleCloseItemModal = ({
-  open,
-  setIsModalOpen,
-  setItemToRename,
-  setModalName,
-}: IHandleCloseItemModal): void => {
-  setIsModalOpen(open);
-  if (!open) {
-    setItemToRename(null);
-    setModalName("");
-  }
+  return modalType === "folder" ? "Folder name" : "File name";
 };
