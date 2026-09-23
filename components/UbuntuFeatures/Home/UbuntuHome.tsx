@@ -2,27 +2,40 @@ import React from "react";
 import TopBar from "../TopBar/TopBar";
 import SideBar from "../SideBar/SideBar";
 import Screen from "../Screen/Screen";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 const UbuntuHome = () => {
   return (
     <section>
-      <div className="w-full h-8 bg-black text-white">
+      <header className="relative z-50 w-full h-8 bg-black text-white shrink-0 border-b border-zinc-800/50">
         <TopBar />
-      </div>
-      <div className="w-full h-full flex shrink-0 overflow-hidden ">
-        <div className="h-[calc(100vh-2rem)]">
-          <SidebarProvider className="">
-            <SideBar />
-            <SidebarTrigger className={`cursor-pointer`} />
-          </SidebarProvider>
-        </div>
-
-        <div className="flex-1 w-full h-full ">
-          <Screen />
-        </div>
+      </header>
+      <div className="relative z-0 w-full h-[calc(100vh-2rem)] flex flex-1 overflow-hidden">
+        <SidebarProvider className="h-full w-full">
+          <SideBar />
+          <main className="flex-1 w-full h-full overflow-hidden">
+            <Screen />
+          </main>
+        </SidebarProvider>
       </div>
     </section>
+
+    //    <section className="h-screen w-screen overflow-hidden flex flex-col bg-black">
+    //   {/* Top OS Status Bar - Higher Z-Index ensures full visibility */}
+    //   <header className="relative z-50 w-full h-8 bg-black text-white shrink-0 border-b border-zinc-800/50">
+    //     <TopBar />
+    //   </header>
+
+    //   {/* Main OS Workspace Shell */}
+    //   <div className="relative z-0 w-full h-[calc(100vh-2rem)] flex flex-1 overflow-hidden">
+    //     <SidebarProvider className="h-full w-full">
+    //       <SideBar />
+    //       <main className="flex-1 w-full h-full overflow-hidden">
+    //         <Screen />
+    //       </main>
+    //     </SidebarProvider>
+    //   </div>
+    // </section>
   );
 };
 
